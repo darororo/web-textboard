@@ -1,3 +1,9 @@
+body{
+    /* background */
+    margin: 0px;
+    padding: 40px;
+    background: linear-gradient(to right, #D1BDFF, #8DB1F7);
+}
 .dropBox {
 
 }
