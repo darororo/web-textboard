@@ -11,7 +11,19 @@
 }
 
 .button {
-
+    padding: 8px;
+    border: 1px solid #2e2b35;
+    border-radius: 8px;
+    background-color: #494454;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Coustard';
+    font-size: larger;
+    color: white;
+    -webkit-text-stroke-color: #2e2b35;
+    -webkit-text-stroke-width: 0.5px;
+    width: 85px;
 }
 
 .label {
