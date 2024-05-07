@@ -9,6 +9,8 @@ body{
 }
 
 .textField  {
+font-family: 'Coustard';
+font-size: 18px;
 
 }
 
@@ -33,7 +35,12 @@ body{
 }
 
 .label {
-    
+  display: flex;
+  font-family: 'Coustard';
+  font-size: 18px;
+  color: #ffffff;
+  display: block;
+  font-weight: bold;
 }
 
 .title {
