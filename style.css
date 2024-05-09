@@ -6,7 +6,6 @@ body{
 }
 .dropbox {
   display: flex;
-  
 }
 .dropbox-text {
   background-color: white;
@@ -20,7 +19,7 @@ body{
   border: 1px solid black;
   border-radius: 8px 0px 0px 8px;
 }
-
+.dropbox-btn1,
 .dropbox-btn {
   box-sizing: border-box;
   width: 80px;
@@ -51,9 +50,8 @@ body{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: #5e5858;
   padding: 4px;
-  height: 200px;
+  height:350px;
 }
 
 .button {
@@ -83,5 +81,27 @@ body{
 }
 
 .title {
-
+  font-size: 30px;
+  color: #ffffff;
+  text-shadow: #5e5858;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Coustard';
+}
+.text,
+.color,
+.font{
+display: flex ;
+font-size: 20px;
+color: #ffffff;
+text-shadow: #5e5858;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+font-family: 'Coustard';
+align-items: center;
+text-align: right;
+width: 50px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
 }
