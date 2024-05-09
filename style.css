@@ -14,10 +14,12 @@ body{
   width: 160px;
   height: 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  text-align: left;
   border: 1px solid black;
   border-radius: 8px 0px 0px 8px;
+  color: #8f8f8f;
+  padding-left: 10px;
 }
 .dropbox-btn1,
 .dropbox-btn {
@@ -36,13 +38,13 @@ body{
 .textfield  {
   font-family: 'Coustard';
   font-size: 18px;
-  width: 240px;
+  width: 250px;
   height: 40px;
   border: 1px solid black;
   border-radius: 8px;
   box-sizing: border-box;
   display: block;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .component {
@@ -104,4 +106,28 @@ width: 50px;
   display: flex;
   flex-direction: row;
   column-gap: 10px;
+}
+.background {
+  background: black;
+  padding: 0px;
+  .banner {
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #8f8f8f;
+    display: flex;
+    column-gap: 10px;
+    .textfield {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width:100%;
+    }
+    .radius {
+      width: 70px;
+    }
+    .text {
+      width: fit-content;
+    }
+  }
 }
