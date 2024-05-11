@@ -1,12 +1,14 @@
 body{
-  /* background */
   margin: 0px;
   padding: 40px;
   background: linear-gradient(to right, #D1BDFF, #8DB1F7);
 }
+
 .dropbox {
   display: flex;
+  flex-direction: column;
 }
+
 .dropbox-text {
   background-color: white;
   font-family: 'Coustard';
@@ -18,10 +20,9 @@ body{
   text-align: left;
   border: 1px solid black;
   border-radius: 8px 0px 0px 8px;
-  color: #8f8f8f;
   padding-left: 10px;
 }
-.dropbox-btn1,
+
 .dropbox-btn {
   box-sizing: border-box;
   width: 80px;
@@ -33,6 +34,50 @@ body{
   align-items: center;
   color: white;
   cursor: pointer;
+}
+
+.dropbox-head {
+  display: flex;
+  flex-direction: row;
+}
+
+.option-menu {
+  position: relative;
+  display: none;
+  z-index: 99;
+}
+
+
+.option {
+  background-color: white;
+  font-family: 'Coustard';
+  font-size: larger;
+  width: 240px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding-left: 10px;
+  cursor: pointer;
+
+}
+
+
+#color-menu > .option{
+  z-index: 99;
+  position: absolute;
+}
+
+
+
+#font-menu > .option{
+  position: absolute;
+}
+
+.option:hover {
+  background-color: #8f8f8f;
 }
 
 .textfield  {
@@ -47,13 +92,16 @@ body{
   padding-left: 10px;
 }
 
-.component {
+.component{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   padding: 4px;
   height:350px;
+}
+
+.component > * {
+  margin-top: 20px
 }
 
 .button {
@@ -89,24 +137,24 @@ body{
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-family: 'Coustard';
 }
-.text,
-.color,
-.font{
-display: flex ;
-font-size: 20px;
-color: #ffffff;
-text-shadow: #5e5858;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-font-family: 'Coustard';
-align-items: center;
-text-align: right;
-width: 50px;
+.text, .color, .font{
+  display: flex ;
+  font-size: 20px;
+  color: #ffffff;
+  text-shadow: #5e5858;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Coustard';
+  align-items: center;
+  text-align: right;
+  width: 50px;
 }
+
 .container {
   display: flex;
   flex-direction: row;
   column-gap: 10px;
 }
+
 .background {
   background: black;
   padding: 0px;

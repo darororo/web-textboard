@@ -12,45 +12,53 @@
         <div class="title">Text Board</div>
         <div class="container">
             <div class="text">Text</div>
-            <input class="textfield" type="text" placeholder="Enter your text...">
+            <input name="text" id="text-input" class="textfield" type="text" placeholder="Enter your text...">
         </div>
 
         <div class="container">
-        <div class="color">Color</div>
-
-        <!-- dropbox -->
-        <div class="dropbox">
-        <!-- text display -->
-        <div class="dropbox-text">Red</div>
-
-        <!-- arrow button -->
-        <div class="dropbox-btn"> 
-                <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+            <div class="font">Color</div>
+            <div class="dropbox">
+                <div id="color-selector" class="dropbox-head">
+                    <div id="selected-color" class="dropbox-text">Red</div>
+                    <div id="color-btn" class="dropbox-btn"> <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></div>
+                </div>
+                <div id="color-menu" class="option-menu">
+                    <div class="option ">Red</div>
+                    <div class="option ">Green</div>
+                    <div class="option ">Blue</div>
+                    <div class="option ">Yellow</div>
+                </div>
+                
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="font">Font</div>
-         <!-- dropbox -->
-        <div class="dropbox"> 
-        <!-- text display -->
-             <div class="dropbox-text">Comic san</div>
-            
-            <!-- arrow button -->
-            <div class="dropbox-btn1">
-                    <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                    fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                    15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
-             </div>
+        <div class="container">
+            <div class="font">Font</div>
+            <div class="dropbox">
+                <div id="font-selector" class="dropbox-head">
+                    <div id="selected-font" class="dropbox-text">Times New</div>
+                    <div id="font-btn" class="dropbox-btn"> <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg></div>
+                </div>
+                <div id="font-menu" class="option-menu">
+                    <div class="option">Times New</div>
+                    <div class="option">San Serif</div>
+                    <div class="option">Comic San</div>
+                    <div class="option">Arial</div>
+                    <div class="option">Calibri</div>
+                </div>
+                
+            </div>
         </div>
-    </div>
 
-        <div class="button">Go! </div>
 
+        <form action="banner.html" method="GET">
+            <input type="text"  id="text-form" name="text" hidden>
+            <input type="text"  id="font-form" name="font" hidden>
+            <input type="text" id="color-form" name="color" value="123" hidden>
+            <button id="go-btn" class="button">GO!</button>
+        </form>
     </div>
     
+    <script src="selector.js"></script>
 </body>
 </html>
