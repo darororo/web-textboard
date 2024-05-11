@@ -171,6 +171,9 @@ body{
       align-items: center;
       width:100%;
     }
+    .dropbox {
+      flex-direction: row;
+    }
     .radius {
       width: 70px;
     }
