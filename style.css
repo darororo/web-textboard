@@ -158,27 +158,34 @@ body{
 .background {
   background: black;
   padding: 0px;
-  .banner {
-    padding: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #8f8f8f;
-    display: flex;
-    column-gap: 10px;
-    .textfield {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width:100%;
-    }
-    .dropbox {
-      flex-direction: row;
-    }
-    .radius {
-      width: 70px;
-    }
-    .text {
-      width: fit-content;
-    }
-  }
+  
+}
+
+.banner {
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #8f8f8f;
+  display: flex;
+  opacity: 0;
+  column-gap: 10px;
+}
+
+.banner:hover { opacity: 100;}
+
+.banner .textfield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+}
+
+.banner .dropbox {
+  flex-direction: row;
+}
+.banner .text {
+  width: fit-content;
+}
+.banner .radius {
+  width: 70px;
 }
