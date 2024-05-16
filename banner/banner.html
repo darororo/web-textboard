@@ -6,13 +6,34 @@
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link href='https://fonts.googleapis.com/css?family=Coustard' rel='stylesheet'>
     <title>Text Board</title>
+    
 </head>
 
 <body class="background">
-    <div class="banner">
+    <div class="banner" style="z-index: 99;">
 
         <div class="text">Text</div>
-        <input class="textfield" type="text" placeholder="Text...">
+        <input id="text-input" class="textfield" type="text" placeholder="Text...">
+
+        <div class="text">Font</div>
+        <div class="dropbox"> 
+            <div id="font-input" class="dropbox-text">Choose...</div>
+            <div class="dropbox-btn">
+                    <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                    fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                    15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+            </div>
+        </div>
+
+        <div class="text">Color</div>
+        <div class="dropbox"> 
+            <div id="color-input" class="dropbox-text">Choose...</div>
+            <div class="dropbox-btn">
+                    <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                    fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                    15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+            </div>
+        </div>
         
         <input class="textfield radius" type="text" placeholder="180"></input>
 
@@ -35,6 +56,13 @@
                     15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
             </div>
         </div>
-
     </div>    
+    <script src="bannerSeachParam.js"></script>
+
+    <div style="z-index: 0; position: absolute; top: 500px;">
+        <script src="../lib/p5.min.js"></script>
+        <script src="sketch.js"></script>
+    </div>
+    
+
 </body>
