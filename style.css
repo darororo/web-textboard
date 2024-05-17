@@ -152,8 +152,10 @@ body{
 .container {
   display: flex;
   flex-direction: row;
-  column-gap: 10px;
+ 
 }
+
+
 
 .background {
   background: black;
@@ -167,17 +169,20 @@ body{
   padding-bottom: 20px;
   background-color: #8f8f8f;
   display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
   opacity: 0;
   column-gap: 10px;
+  width: 100%;
 }
 
-.banner:hover { opacity: 100;}
+.banner:hover { opacity: 80%;}
 
 .banner .textfield {
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100%;
+  /* width:200px */
 }
 
 .banner .dropbox {
@@ -189,3 +194,8 @@ body{
 .banner .radius {
   width: 70px;
 }
+
+#left-column {
+  width: 45%;
+}
+

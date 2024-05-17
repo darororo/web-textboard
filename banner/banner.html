@@ -11,50 +11,68 @@
 
 <body class="background">
     <div class="banner" style="z-index: 99; position: absolute;">
-        <div class="text">Text</div>
-        <input id="text-input" class="textfield" type="text" placeholder="Text...">
-
-        <div class="text">Font</div>
-        <div class="dropbox"> 
-            <div id="font-input" class="dropbox-text">Choose...</div>
-            <div class="dropbox-btn">
-                    <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                    fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                    15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
-            </div>
-        </div>
-
-        <div class="text">Color</div>
-        <div class="dropbox"> 
-            <div id="color-input" class="dropbox-text">Choose...</div>
-            <div class="dropbox-btn">
-                    <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                    fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                    15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+       <div id="left-column"">
+        <div>
+            <div class="text">Text</div>
+            <div style="display: flex;column-gap: 20px;">
+                <input id="text-input" class="textfield" type="text" placeholder="Text...">
+                <input class="textfield radius" type="text" placeholder="180"></input>
             </div>
         </div>
         
-        <input class="textfield radius" type="text" placeholder="180"></input>
-
-        <div class="text">Background</div>
-        <div class="dropbox"> 
-            <div class="dropbox-text">Choose...</div>
-            <div class="dropbox-btn">
-                    <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                    fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                    15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+        <div>
+            <div class="text">Font</div>
+            <div class="dropbox"> 
+                <div id="font-input" class="dropbox-text">Choose...</div>
+                <div class="dropbox-btn">
+                        <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                        fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                        15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+                </div>
             </div>
         </div>
-
-        <div class="text">Effect</div>
-        <div class="dropbox"> 
-            <div class="dropbox-text">Normal</div>
-            <div class="dropbox-btn">
-                    <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                    fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                    15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+        
+        <div>
+            <div class="text">Color</div>
+            <div class="dropbox"> 
+                <div id="color-input" class="dropbox-text">Choose...</div>
+                <div class="dropbox-btn">
+                        <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                        fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                        15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+                </div>
             </div>
         </div>
+       </div>
+
+       <div id="right-column">
+        <div>
+            <div class="text">Background</div>
+            <div class="dropbox"> 
+                <div class="dropbox-text">Choose...</div>
+                <div class="dropbox-btn">
+                        <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                        fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                        15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+                </div>
+            </div>
+           </div>
+    
+           <div>
+            <div class="text">Effect</div>
+            <div class="dropbox"> 
+                <div class="dropbox-text">Normal</div>
+                <div class="dropbox-btn">
+                        <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                        fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                        15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+                </div>
+            </div>
+           </div>
+       </div>
+
+
+       
     </div>    
     <script src="bannerSeachParam.js"></script>
 
