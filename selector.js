@@ -31,7 +31,10 @@ renderOptions(fontOptions, selectedFont, fontForm);
 // Close select menu when clicking elsewhere not the dropdown buttons
 document.addEventListener("click", closeAllSelects);
 
-document.getElementById("text-form").value = document.getElementById("text-input").value;
+// set text value
+document.getElementById("go-btn"),onclick = () => {
+    document.getElementById("text-form").value = document.getElementById("text-input").value;
+}
 
 function menuController(menu) {
     btnClicked = true;
