@@ -1,6 +1,7 @@
 let focusedMenu = [];
 let btnClicked = false; // prevent closeAll function in the document listener to close the menu immediately
 
+
 // Color Variables
 let selectedColor = document.getElementById("selected-color");
 let colorOptions = document.querySelectorAll("#color-menu > .option");
@@ -24,15 +25,14 @@ let fontForm = document.getElementById("font-form");
 // fontMenu style is empty upon started like colorMenu 
 if(fontMenu.style.display == "" ){ fontMenu.style.display = "none";};
 
-fontBtn.onclick = () => {menuController(fontMenu)}
+fontBtn.onclick = () => {menuController(fontMenu); };
 renderOptions(fontOptions, selectedFont, fontForm);
-
 
 // Close select menu when clicking elsewhere not the dropdown buttons
 document.addEventListener("click", closeAllSelects);
 
 // set text value
-document.getElementById("go-btn"),onclick = () => {
+document.getElementById("go-btn").onclick = () => {
     document.getElementById("text-form").value = document.getElementById("text-input").value;
 }
 
