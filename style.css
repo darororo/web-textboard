@@ -45,6 +45,9 @@ body{
   position: relative;
   display: none;
   z-index: 99;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100px;
 }
 
 
@@ -144,7 +147,6 @@ body{
   text-shadow: #5e5858;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-family: 'Coustard';
-  align-items: center;
   text-align: right;
   width: 50px;
 }
@@ -182,6 +184,14 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.banner .option-menu {
+  width: 260px;
+}
+
+.banner .dropbox-btn {
+  height: 41px;
 }
 
 .banner .dropbox {
