@@ -32,9 +32,11 @@ renderOptions(fontOptions, selectedFont, fontForm);
 document.addEventListener("click", closeAllSelects);
 
 // set text value
-document.getElementById("go-btn").onclick = () => {
-    document.getElementById("text-form").value = document.getElementById("text-input").value;
+let goBtn = document.getElementById("go-btn"); 
+if(goBtn) {
+    goBtn.onclick = () => document.getElementById("text-form").value = document.getElementById("text-input").value;
 }
+
 
 function menuController(menu) {
     btnClicked = true;

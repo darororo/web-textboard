@@ -1,16 +1,20 @@
-let txt = document.getElementById("text-input").value; 
-let col = document.getElementById("color-input").innerText;
-let font = document.getElementById("font-input").innerText;
+let txt = document.getElementById("text-input"); 
+let col = document.getElementById("color-input");
+let font = document.getElementById("font-input");
 
 let locationX = 0;
 function setup() {
     createCanvas(windowWidth, windowHeight);
 }
 
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+  }
+
 function draw() {
     rectMode(CENTER);
     background("skyblue");
-    writeText(txt, col, font, 500);
+    writeText(txt.value, col.innerText, "Times New Roman", 500);
 }
 
 function writeText(str, color, font, size) {
@@ -27,4 +31,5 @@ function moveText(textObj, speed) {
     if(textObj.textWidth() + locationX < 0) {
         locationX = windowWidth;
     }
+    
 }
