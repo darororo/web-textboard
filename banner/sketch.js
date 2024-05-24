@@ -1,11 +1,28 @@
 let txt = document.getElementById("text-input"); 
 let col = document.getElementById("selected-color");
 let font = document.getElementById("selected-font");
+let effect = document.getElementById("selected-effect");
+
+let r = 15; let angle = 0; let t = 0;
+let speed = 15; let size = 300;
+
+let locationX=0; let locationY=0;
+
+let points = [];
+let robotoFont;
+
+function preload() {
+    robotoFont = loadFont("../assets/Roboto-Black.ttf");
+}
 
 
-let locationX = 0;
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    let canvas = createCanvas(windowWidth, windowHeight);
+    angleMode(DEGREES);
+
+
+    locationX = canvas.width/2 - 200;
+    locationY = canvas.height/2 + 100;
 }
 
 function windowResized() {
@@ -16,30 +33,67 @@ function draw() {
     rectMode(CENTER);
     background("skyblue");
 
-    writeText(txt.value, col.innerText, font.innerText, 500);
-
-
-    // if(font.innerText) {
-    //     writeText(txt.value, col.innerText, font.innerText, 500);
-    // } else {
-    //     writeText(txt.value, col.innerText, "Times New", 500);
-    // }
-    
+    switch(effect.innerText) {
+        case "Normal":
+            writeText()
+        break;
+        case "Hammock":
+            textEffectRotating()
+        break;
+    }
+    // writeText()
 }
 
-function writeText(str, color, font, size) {
+function writeText() {
     textSize(size);
-    fill(color);
-    textFont(font);
-    let t = text(str, locationX , 500);
-    moveText(t, 25);
+    fill(col.innerText);
+    textFont(font.innerText);
+    let txtObj = text(txt.value, locationX , locationY);
+    moveText(txtObj);
 }
 
-function moveText(textObj, speed) {
+// function writeText(str, color, font, size) {
+//     textSize(size);
+//     fill(color);
+//     textFont(font);
+//     let t = text(str, locationX , 500);
+//     moveText(t, 25);
+// }
+
+function moveText(textObj) {
     locationX -= speed;
-    console.log(textObj.textWidth());
+    // console.log("Text Width: " +textObj.textWidth());
+    // console.log("pos X: " + locationX);
+
     if(textObj.textWidth() + locationX < 0) {
         locationX = windowWidth;
+    }    
+}
+
+
+function textEffectRotating() { 
+    points = robotoFont.textToPoints(txt.value, locationX, locationY - 250, size, {
+        sampleFactor: 0.5,
+        simplifyThreshold: 0.0
+    });
+
+    stroke(255);
+    let x = r*cos(angle);
+    let y = r*sin(angle);
+    translate(20, 300);
+    for (let i=0; i<points.length; i++) {
+      line(points[i].x, points[i].y, points[i].x + x, points[i].y + y);
     }
     
+    fill(col.innerText);
+    textSize(size);
+    textFont(font.innerText);
+    let txtObj = text(txt.innerText, locationX, 500);
+    
+    let increment = 5*sin(t);
+    t++;
+    angle += increment;
+
+    moveText(txtObj)
+
 }

@@ -22,6 +22,20 @@ let fontBtn = document.getElementById("font-btn");
 let fontMenu = document.getElementById("font-menu");
 let fontForm = document.getElementById("font-form");
 
+// effect Variables
+let selectedEffect = document.getElementById("selected-effect");
+if(selectedEffect) {
+    let effectOptions = document.querySelectorAll("#effect-menu > .option");
+    let effectBtn = document.getElementById("effect-btn");
+    let effectMenu = document.getElementById("effect-menu");
+    let effectForm = document.getElementById("effect-form");
+
+    if(effectMenu.style.display == "" ){ effectMenu.style.display = "none"; };
+
+    effectBtn.onclick = () => {menuController(effectMenu)}
+    renderOptions(effectOptions, selectedEffect, effectForm)
+}
+
 // fontMenu style is empty upon started like colorMenu 
 if(fontMenu.style.display == "" ){ fontMenu.style.display = "none";};
 
@@ -39,6 +53,8 @@ if(goBtn) {
 
 
 function menuController(menu) {
+    console.log(menu.style.display)
+
     btnClicked = true;
     if (menu.style.display == "none") {
         menu.style.display = "block";
