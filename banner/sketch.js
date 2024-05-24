@@ -4,6 +4,10 @@ let font = document.getElementById("selected-font");
 let effect = document.getElementById("selected-effect");
 let speed = document.getElementById("speed-input");
 
+let bgColor = "skyblue";
+let colorPicker = document.getElementById("color-picker");
+
+
 let r = 15; let angle = 0; let t = 0;
 let size = 300;
 
@@ -31,8 +35,11 @@ function windowResized() {
   }
 
 function draw() {
+    bgColor = colorPicker.value;
     rectMode(CENTER);
-    background("skyblue");
+    background(bgColor);
+
+    
 
     switch(effect.innerText) {
         case "Normal":
