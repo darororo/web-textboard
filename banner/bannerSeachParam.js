@@ -4,6 +4,6 @@ let searchParams = new URL(url).searchParams;
 let entries = new URLSearchParams(searchParams);
 
 document.getElementById("text-input").value = searchParams.get("text");
-document.getElementById("color-input").innerHTML = searchParams.get("color");
-document.getElementById("font-input").innerHTML = searchParams.get("font");
+document.getElementById("selected-color").innerHTML = searchParams.get("color");
+document.getElementById("selected-font").innerHTML = searchParams.get("font");
 

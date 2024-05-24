@@ -1,6 +1,7 @@
 let txt = document.getElementById("text-input"); 
-let col = document.getElementById("color-input");
-let font = document.getElementById("font-input");
+let col = document.getElementById("selected-color");
+let font = document.getElementById("selected-font");
+
 
 let locationX = 0;
 function setup() {
@@ -14,7 +15,16 @@ function windowResized() {
 function draw() {
     rectMode(CENTER);
     background("skyblue");
-    writeText(txt.value, col.innerText, "Times New Roman", 500);
+
+    writeText(txt.value, col.innerText, font.innerText, 500);
+
+
+    // if(font.innerText) {
+    //     writeText(txt.value, col.innerText, font.innerText, 500);
+    // } else {
+    //     writeText(txt.value, col.innerText, "Times New", 500);
+    // }
+    
 }
 
 function writeText(str, color, font, size) {

@@ -56,7 +56,7 @@ function renderOptions(optionArray, selectedEle, formElement) {
         optionArray[i].style.top = (40*i + 1) + "px" ;
         optionArray[i].onclick = () => {
             selectedEle.innerText = optionArray[i].innerText;
-            formElement.value = optionArray[i].innerText;
+            if(formElement) { formElement.value = optionArray[i].innerText; }
             focusedMenu.pop().style.display = "none";;
         }
     }
