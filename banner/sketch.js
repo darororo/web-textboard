@@ -73,20 +73,23 @@ function moveText(textObj) {
 
 
 function textEffectRotating() { 
+
     points = robotoFont.textToPoints(txt.value, locationX, locationY - 250, size, {
         sampleFactor: 0.5,
         simplifyThreshold: 0.0
     });
 
-    stroke(255);
+    stroke(col.innerText);
     let x = r*cos(angle);
     let y = r*sin(angle);
     translate(20, 300);
     for (let i=0; i<points.length; i++) {
-      line(points[i].x, points[i].y, points[i].x + x, points[i].y + y);
+        line(points[i].x, points[i].y, points[i].x + x, points[i].y + y);
     }
-    
+
     fill(col.innerText);
+
+    
     textSize(size);
     textFont(font.innerText);
     let txtObj = text(txt.innerText, locationX, 500);
