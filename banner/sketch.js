@@ -2,9 +2,10 @@ let txt = document.getElementById("text-input");
 let col = document.getElementById("selected-color");
 let font = document.getElementById("selected-font");
 let effect = document.getElementById("selected-effect");
+let speed = document.getElementById("speed-input");
 
 let r = 15; let angle = 0; let t = 0;
-let speed = 15; let size = 300;
+let size = 300;
 
 let locationX=0; let locationY=0;
 
@@ -61,7 +62,7 @@ function writeText() {
 // }
 
 function moveText(textObj) {
-    locationX -= speed;
+    locationX -= speed.value;
     // console.log("Text Width: " +textObj.textWidth());
     // console.log("pos X: " + locationX);
 
