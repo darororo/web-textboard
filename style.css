@@ -207,4 +207,7 @@ body{
 #left-column {
   width: 45%;
 }
-
+#speed-input {
+  width: 250px;
+  accent-color: rgb(78, 78, 138);
+}
