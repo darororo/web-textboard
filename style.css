@@ -1,23 +1,210 @@
-.dropBox {
+body{
+  margin: 0px;
+  padding: 40px;
+  background: linear-gradient(to right, #D1BDFF, #8DB1F7);
+}
+
+.dropbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropbox-text {
+  background-color: white;
+  font-family: 'Coustard';
+  font-size: larger;
+  width: 160px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 8px 0px 0px 8px;
+  padding-left: 10px;
+}
+
+.dropbox-btn {
+  box-sizing: border-box;
+  width: 80px;
+  background-color: #494454;
+  border: 1px solid black;
+  border-radius: 0px 8px 8px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.dropbox-head {
+  display: flex;
+  flex-direction: row;
+}
+
+.option-menu {
+  position: relative;
+  display: none;
+  z-index: 99;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100px;
+}
+
+
+.option {
+  background-color: white;
+  font-family: 'Coustard';
+  font-size: larger;
+  width: 240px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding-left: 10px;
+  cursor: pointer;
 
 }
 
-.textField  {
 
+#color-menu > .option{
+  z-index: 99;
+  position: absolute;
 }
 
-.component {
 
+
+#font-menu > .option{
+  position: absolute;
+}
+
+.option:hover {
+  background-color: #8f8f8f;
+}
+
+.textfield  {
+  font-family: 'Coustard';
+  font-size: 18px;
+  width: 250px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: block;
+  padding-left: 10px;
+}
+
+.component{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px;
+  height:350px;
+}
+
+.component > * {
+  margin-top: 20px
 }
 
 .button {
-
+  padding: 8px;
+  border: 1px solid #2e2b35;
+  border-radius: 8px;
+  background-color: #494454;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Coustard';
+  font-size: larger;
+  color: white;
+  -webkit-text-stroke-color: #2e2b35;
+  -webkit-text-stroke-width: 0.5px;
+  width: 85px;
+  cursor: pointer;
 }
 
 .label {
-    
+  display: flex;
+  font-family: 'Coustard';
+  font-size: 18px;
+  color: #ffffff;
+  display: block;
+  font-weight: bold;
 }
 
 .title {
-
+  font-size: 30px;
+  color: #ffffff;
+  text-shadow: #5e5858;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Coustard';
 }
+.text, .color, .font{
+  display: flex ;
+  font-size: 20px;
+  color: #ffffff;
+  text-shadow: #5e5858;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Coustard';
+  text-align: right;
+  width: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+
+
+.background {
+  background: black;
+  padding: 0px;
+  
+}
+
+.banner {
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #8f8f8f;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+  opacity: 0;
+  column-gap: 10px;
+  width: 100%;
+}
+
+.banner:hover { opacity: 80%;}
+
+.banner .textfield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner .option-menu {
+  width: 260px;
+}
+
+.banner .dropbox-btn {
+  height: 41px;
+}
+
+.banner .dropbox {
+  flex-direction: row;
+}
+.banner .text {
+  width: fit-content;
+}
+.banner .radius {
+  width: 70px;
+}
+
+#left-column {
+  width: 45%;
+}
+
