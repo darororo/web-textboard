@@ -90,14 +90,22 @@
        <div id="right-column">
         <div>
             <div class="text">Background</div>
-            <div class="dropbox"> 
-                <div class="dropbox-text">Choose...</div>
-                <div class="dropbox-btn">
-                        <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                        fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                        15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
-                </div>
+        <div class="dropbox" onclick="toggleBackgroundMenu()">
+            <div id="selected-background" class="dropbox-text">upload...</div>
+            <div id="background-btn" class="dropbox-btn" style="margin-left: opx;">
+                
+                <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
+                </svg>
             </div>
+            
+        </div>
+        <div id="background-menu" class="option-menu">
+            <div class="option" onclick="setBackgroundColor()">Color</div>
+            <div class="option" onclick="document.getElementById('fileInput').click();">Image</div>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileSelect(event)">
+        <input type="color" id="favcolor" value="#ff0000">
            </div>
     
            <div>
