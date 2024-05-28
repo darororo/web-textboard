@@ -108,7 +108,10 @@ body{
 }
 
 .button {
+  position: absolute;
+  margin-left: -40px;
   padding: 8px;
+  top: 400px;
   border: 1px solid #2e2b35;
   border-radius: 8px;
   background-color: #494454;
@@ -206,8 +209,25 @@ body{
 
 #left-column {
   width: 45%;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto 400px;
+  grid-auto-flow: column;
+  column-gap: 10px;
 }
 #speed-input {
   width: 250px;
   accent-color: rgb(78, 78, 138);
+}
+@media screen and (max-width: 500px) {
+  body {
+    background-image: url("https://i.pinimg.com/564x/ba/4d/c3/ba4dc3fbb98fcd3f6d102e8f1d5814f1.jpg");
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button {
+    top: 500px;
+  }
 }
