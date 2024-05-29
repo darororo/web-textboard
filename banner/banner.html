@@ -9,50 +9,51 @@
     
 </head>
 
-<body class="background">
+<body class="background" id="banner">
 <div class="banner" style="z-index: 99; position: absolute;">
-    <div id="left-column">
-        <div>
-            <div class="text">Text</div>
-            <div style="display: flex;column-gap: 20px;">
-                <input id="text-input" class="textfield" type="text" placeholder="Text...">
-            </div>
-        </div>
-        
-        <div>
-            <div class="text">Font</div>
-            <div class="dropbox"> 
-                <div id="selected-font" class="dropbox-text">Choose...</div>
-                <div id="font-btn" class="dropbox-btn">
-                        <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                        fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                        15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+    <div class="box">
+        <div id="label">Text</div>
+        <div id="left-column">
+            <div>
+                <div class="text">Text</div>
+                <div style="display: flex;column-gap: 20px;">
+                    <input id="text-input" class="textfield" type="text" placeholder="Text...">
                 </div>
-                <div id="font-menu" class="option-menu">
-                    <div class="option">Times New</div>
-                    <div class="option">San Serif</div>
-                    <div class="option">Comic San</div>
-                    <div class="option">Arial</div>
-                    <div class="option">Calibri</div>
-                    <div class="option">Verdana</div>
-                    <div class="option">Tahoma</div>
-                    <div class="option">Helvetica</div>
-                    <div class="option">Courier New</div>
-                    <div class="option">Georgia</div>
-                    <div class="option">Blackadder ITC</div>
-                    <div class="option">Broadway</div>
-                    <div class="option">High Tower Text</div>
-                    <div class="option">Rockwell</div>
-                    <div class="option">Aatrix OCRA</div>
-                    <div class="option">Kh Battambang</div>
-                    <div class="option">Khmer​ Chrieng1</div>
-                    <div class="option">Kh Content</div>
-                    <div class="option">Kh Digital Thom</div>
-                </div> 
             </div>
-        </div>
-        
-        <div>
+            
+            <div>
+                <div class="text">Font</div>
+                <div class="dropbox"> 
+                    <div id="selected-font" class="dropbox-text">Choose...</div>
+                    <div id="font-btn" class="dropbox-btn">
+                            <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                            fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                            15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+                    </div>
+                    <div id="font-menu" class="option-menu">
+                        <div class="option">Times New</div>
+                        <div class="option">San Serif</div>
+                        <div class="option">Comic San</div>
+                        <div class="option">Arial</div>
+                        <div class="option">Calibri</div>
+                        <div class="option">Verdana</div>
+                        <div class="option">Tahoma</div>
+                        <div class="option">Helvetica</div>
+                        <div class="option">Courier New</div>
+                        <div class="option">Georgia</div>
+                        <div class="option">Blackadder ITC</div>
+                        <div class="option">Broadway</div>
+                        <div class="option">High Tower Text</div>
+                        <div class="option">Rockwell</div>
+                        <div class="option">Aatrix OCRA</div>
+                        <div class="option">Kh Battambang</div>
+                        <div class="option">Khmer​ Chrieng1</div>
+                        <div class="option">Kh Content</div>
+                        <div class="option">Kh Digital Thom</div>
+                    </div> 
+                </div>
+            </div>
+            <div>
             <div class="text">Color</div>
             <div class="dropbox"> 
                 <div id="selected-color" class="dropbox-text">Choose...</div>
@@ -84,57 +85,72 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div style="position: absolute; left: 230px;">
+            <div class="text">Effect</div>
+            <div class="dropbox"> 
+                <div id="selected-color" class="dropbox-text">Normal</div>
+                <div id="color-btn" class="dropbox-btn">
+                        <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                        fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                        15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+                </div>
+            </div>
+        </div>
+        <div id="rotate" style="top: 129px; ">
             <div class="text">Angle</div>
             <input class="textfield radius" type="text" placeholder="180"></input>
         </div>
-        <div>
+        <div id="size" style="top: 199px; ">
             <div class="text">Size</div>
             <input class="textfield radius" type="text" placeholder="200"></input>
         </div>
     </div>
+    </div>
 
-    <div id="right-column">
-            <div>
-                <div class="text">Background</div>
-                    <div class="dropbox">
-                    <div id="selected-background" class="dropbox-text">upload...</div>
-                    <div id="background-btn" class="dropbox-btn" >
-                        <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
-                        </svg>
-                    </div>
-                    <input type="color" id="color-picker" value="#87ceeb" style="margin-left: 5px; margin-top: 5px;">
-
-              </div>
-                <div id="background-menu" class="option-menu">
-                    <div class="option">Color</div>
-                    <div class="option"></div>
-                </div>
-            </div>
-
-           <div>
-                <div class="text">Effect</div>
-                    <div class="dropbox"> 
-                        <div id="selected-effect" class="dropbox-text">Normal</div>
-                        <div id="effect-btn" class="dropbox-btn">
-                                <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
-                                fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
-                                15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
-                            </div>
-                        <div id="effect-menu" class="option-menu">
-                            <div class="option">Normal</div>
-                            <div class="option">Hammock</div>
+    <div class="box">
+        <div id="label">Background</div>
+        <div id="right-column">
+                <div>
+                    <div class="text">Background</div>
+                        <div class="dropbox">
+                        <div id="selected-background" class="dropbox-text">upload...</div>
+                        <div id="background-btn" class="dropbox-btn" >
+                            <svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
+                            </svg>
                         </div>
+                        <input type="color" id="color-picker" value="#87ceeb" style="margin-left: 5px; margin-top: 5px;">
+
+                </div>
+                    <div id="background-menu" class="option-menu">
+                        <div class="option">Color</div>
+                        <div class="option"></div>
+                    </div>
+                </div>
+
+            <div>
+                    <div class="text">Effect</div>
+                        <div class="dropbox"> 
+                            <div id="selected-effect" class="dropbox-text">Normal</div>
+                            <div id="effect-btn" class="dropbox-btn">
+                                    <svg width="48px" height="36px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                                    fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 
+                                    15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+                                </div>
+                            <div id="effect-menu" class="option-menu">
+                                <div class="option">Normal</div>
+                                <div class="option">Hammock</div>
+                            </div>
+                        </div>
+                </div>
+
+            <div>
+                    <div class="text">Speed</div>
+                    <div class="slidecontainer">
+                        <input id="speed-input" type="range" min="0" max="100" value="30">
                     </div>
             </div>
-
-           <div>
-                <div class="text">Speed</div>
-                <div class="slidecontainer">
-                    <input id="speed-input" type="range" min="0" max="100" value="30">
-                </div>
-           </div>
+        </div>
     </div>
 </div>
 

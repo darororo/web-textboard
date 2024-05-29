@@ -13,7 +13,7 @@ body{
   background-color: white;
   font-family: 'Coustard';
   font-size: larger;
-  width: 160px;
+  width: 110px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ body{
 
 .dropbox-btn {
   box-sizing: border-box;
-  width: 80px;
+  width: 60px;
   background-color: #494454;
   border: 1px solid black;
   border-radius: 0px 8px 8px 0px;
@@ -73,8 +73,6 @@ body{
   position: absolute;
 }
 
-
-
 #font-menu > .option{
   position: absolute;
 }
@@ -86,7 +84,7 @@ body{
 .textfield  {
   font-family: 'Coustard';
   font-size: 18px;
-  width: 250px;
+  width: 180px;
   height: 40px;
   border: 1px solid black;
   border-radius: 8px;
@@ -160,28 +158,36 @@ body{
   column-gap: 10px;
 }
 
-
-
 .background {
   background: black;
   padding: 0px;
-  
 }
 
 .banner {
   padding: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #8f8f8f;
+  background-color: white;
+  opacity: 90%;
   display: flex;
-  flex-grow: 1;
-  justify-content: space-around;
-  opacity: 0;
   column-gap: 10px;
   width: 100%;
+  height: fit-content;
 }
 
 .banner:hover { opacity: 80%;}
+
+.banner .box {
+  background-color: #8f8f8f;
+  padding: 20px;
+  width: 100%;
+}
+
+.banner #label {
+  display: flex;
+  justify-content: center;
+  font-family: 'Coustard';
+  font-size: larger;
+  color: white;
+}
 
 .banner .textfield {
   display: flex;
@@ -206,12 +212,16 @@ body{
 .banner .radius {
   width: 70px;
 }
+#rotate, #size {
+margin-left: 310px;
+position:absolute;
+}
 
 #left-column {
   width: 45%;
   display: grid;
   grid-template-rows: auto auto auto;
-  grid-template-columns: auto 400px;
+  grid-template-columns: auto 200px;
   grid-auto-flow: column;
   column-gap: 10px;
 }
@@ -229,5 +239,11 @@ body{
   }
   .button {
     top: 500px;
+  }
+  #font-container {
+    margin-top: 70px;
+  }
+  .rotated {
+    transform: rotate(90deg);
   }
 }

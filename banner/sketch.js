@@ -108,3 +108,8 @@ function textEffectRotating() {
     moveText(txtObj)
 
 }
+const banner = document.getElementById("banner");
+
+if (window.innerWidth <= 500) {
+  banner.classList.toggle("rotated");
+}
