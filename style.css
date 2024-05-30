@@ -170,6 +170,7 @@ body{
   display: flex;
   column-gap: 10px;
   width: 100%;
+  min-width: 900px;
   height: fit-content;
 }
 
@@ -179,6 +180,7 @@ body{
   background-color: #8f8f8f;
   padding: 20px;
   width: 100%;
+  min-width: 340px;
 }
 
 .banner #label {
@@ -245,5 +247,6 @@ position:absolute;
   }
   .rotated {
     transform: rotate(90deg);
+    margin-top: -15px;
   }
 }

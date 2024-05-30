@@ -22,16 +22,15 @@ function preload() {
 
 
 function setup() {
-    let canvas = createCanvas(windowWidth, windowHeight);
+    let canvas = createCanvas(Math.max(windowWidth, 920), windowHeight);
     angleMode(DEGREES);
-
 
     locationX = canvas.width/2 - 200;
     locationY = canvas.height/2 + 100;
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(Math.max(windowWidth, 920), windowHeight);
   }
 
 function draw() {
@@ -110,6 +109,8 @@ function textEffectRotating() {
 }
 const banner = document.getElementById("banner");
 
-if (window.innerWidth <= 500) {
-  banner.classList.toggle("rotated");
-}
+    if (window.innerWidth <= 500) {
+      banner.classList.add("rotated");
+      banner.style.minWidth = "650px";
+    }
+  
