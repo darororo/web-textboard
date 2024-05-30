@@ -166,7 +166,7 @@ body{
 .banner {
   padding: 10px;
   background-color: white;
-  opacity: 90%;
+  opacity: 0%;
   display: flex;
   column-gap: 10px;
   width: 100%;
