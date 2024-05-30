@@ -3,6 +3,7 @@ let col = document.getElementById("selected-color");
 let font = document.getElementById("selected-font");
 let effect = document.getElementById("selected-effect");
 let speed = document.getElementById("speed-input");
+let angleInput = document.getElementById("angle-input");
 
 let bgColor = "skyblue";
 let colorPicker = document.getElementById("color-picker");
@@ -37,6 +38,7 @@ function draw() {
     bgColor = colorPicker.value;
     rectMode(CENTER);
     background(bgColor);
+    angle = parseFloat(angleInput.value) || 0;
 
     
 
@@ -55,7 +57,11 @@ function writeText() {
     textSize(size);
     fill(col.innerText);
     textFont(font.innerText);
-    let txtObj = text(txt.value, locationX , locationY);
+    push();
+    translate(locationX, locationY);
+    rotate(angle); 
+    let txtObj = text(txt.value, 0 , 0);
+    pop();
     moveText(txtObj);
 }
 
