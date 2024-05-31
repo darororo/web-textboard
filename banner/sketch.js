@@ -13,6 +13,8 @@ let bgColor = "skyblue";
 let colorPicker = document.getElementById("color-picker");
 const banner = document.getElementById("banner");
 
+
+
 let dragging = false;
 let isMouseOnText = false;
 
@@ -21,15 +23,30 @@ let r = 15; let angle = 0; let t = 0;
 
 let locationX = 0; let locationY = 0;
 
+
+
+let bgType = "color";
+
+document.getElementById("color-picker").addEventListener("input", () => {
+    bgType = "color";
+})
+
+document.getElementById("background-btn").addEventListener("click", () => {
+    bgType = "img";
+})
+
+
+
 let points = [];
 let robotoFont;
 let img;
-
 
 function preload() {
     img = loadImage("../assets/bg1.jpeg")
     robotoFont = loadFont("../assets/Roboto-Black.ttf");
 }
+
+
 
 
 let drops = []
@@ -51,11 +68,15 @@ function windowResized() {
   }
 
 function draw() {
-    bgColor = colorPicker.value;
-    // background(bgColor);
-    background(img);
 
-    console.log(colorPickerText.value)
+    switch(bgType) {
+        case "color":
+            background(colorPicker.value);
+        break;  
+        case "img":
+            background(img);
+        break;
+    }
 
     switch(effectBg.innerText) {
         case "Normal":
