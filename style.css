@@ -172,7 +172,7 @@ body{
   width: 100%;
   min-width: 900px;
   height: fit-content;
-  transition: opacity 2s ease;
+  transition: opacity 0.3s ease;
 }
 
 .banner:hover { opacity: 80%;}
