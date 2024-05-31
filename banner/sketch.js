@@ -93,8 +93,13 @@ function draw() {
         case "Hammock":
             textEffectRotating()
         break;
-    }
-
+        case "Shadow":
+            writeTextWithShadow(effectTxt.value)
+           
+        break;
+     }
+    
+   
 }
 
 let offsetX;
@@ -237,4 +242,36 @@ class Drop{
     }
   }
   
+}
+
+
+// function textNeon() {
+//     glow(color(255,0,0), 39);
+//     writeText();
+
+// }
+
+// function glow(glowColor, blurriness){
+//     drawingContext.shadowBlur = blurriness;
+//     drawingContext.shadowBlur = glowColor;
+//     drawingContext.shadowOffsetX = 20;
+//     drawingContext.shadowOffsetY = 20;
+// }
+
+function writeTextWithShadow() {
+    if (dragging) {
+        dragText();
+    }
+    push();
+    textSize(parseInt(size.value) || 0);
+    txtWidth = textWidth(txt.value);
+    txtHeight = textWidth("M");
+    fill(0, 0, 0, 128); // Shadow color
+    textFont(font.innerText);
+    rotate(parseInt(angleInput.value) || 0);
+    text(txt.value, locationX + 5, locationY + 5); // Shadow offset
+    fill(colorPickerText.value); // Original text color
+    text(txt.value, locationX, locationY);
+    pop();
+    moveText();
 }
