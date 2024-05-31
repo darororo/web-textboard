@@ -26,12 +26,14 @@ let locationX = 0; let locationY = 0;
 
 
 let bgType = "color";
+let imgIndex = -1;
 
 document.getElementById("color-picker").addEventListener("input", () => {
     bgType = "color";
 })
 
 document.getElementById("background-btn").addEventListener("click", () => {
+    imgIndex = (imgIndex + 1) % 4 ;
     bgType = "img";
 })
 
@@ -39,10 +41,13 @@ document.getElementById("background-btn").addEventListener("click", () => {
 
 let points = [];
 let robotoFont;
-let img;
+let img = [];
 
 function preload() {
-    img = loadImage("../assets/bg1.jpeg")
+    img.push(loadImage("../assets/bg1.jpeg"))
+    img.push(loadImage("../assets/bg2.jpg"))
+    img.push(loadImage("../assets/bg3.jpg"))
+    img.push(loadImage("../assets/bg4.jpg"))
     robotoFont = loadFont("../assets/Roboto-Black.ttf");
 }
 
@@ -74,7 +79,7 @@ function draw() {
             background(colorPicker.value);
         break;  
         case "img":
-            background(img);
+            background(img[imgIndex]);
         break;
     }
 
