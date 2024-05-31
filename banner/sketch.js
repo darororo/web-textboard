@@ -58,10 +58,10 @@ let drops = []
 
 
 function setup() {
-    let canvas = createCanvas(Math.max(windowWidth, 920), windowHeight);
+    let canvas = createCanvas(Math.max(windowWidth, 1120), windowHeight);
     angleMode(DEGREES);
     locationX = canvas.width/2;
-    locationY = canvas.height/2;
+    locationY = canvas.height/2 +50;
 
     // p = createVector(random(width), 200)
 
@@ -69,7 +69,7 @@ function setup() {
 }
 
 function windowResized() {
-    resizeCanvas(Math.max(windowWidth, 920), windowHeight);
+    resizeCanvas(Math.max(windowWidth, 1120), windowHeight);
   }
 
 function draw() {
@@ -212,7 +212,7 @@ function mouseReleased() {
 
 if (window.innerWidth <= 500) {
   banner.classList.add("rotated");
-  banner.style.minWidth = "650px";
+  banner.style.minWidth = "500px";
 }
 
 function bgEffectRain() {
