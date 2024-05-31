@@ -22,8 +22,10 @@ let locationX = 0; let locationY = 0;
 
 let points = [];
 let robotoFont;
+let img;
 
 function preload() {
+    img = loadImage("../assets/bg1.jpeg")
     robotoFont = loadFont("../assets/Roboto-Black.ttf");
 }
 
@@ -33,6 +35,7 @@ function setup() {
     angleMode(DEGREES);
     locationX = canvas.width/2;
     locationY = canvas.height/2;
+    
 }
 
 function windowResized() {
@@ -41,7 +44,9 @@ function windowResized() {
 
 function draw() {
     bgColor = colorPicker.value;
-    background(bgColor);
+    // background(bgColor);
+    background(img);
+
 
     switch(effect.innerText) {
         case "Normal":
