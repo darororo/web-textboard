@@ -247,6 +247,6 @@ position:absolute;
   }
   .rotated {
     transform: rotate(90deg);
-    margin-top: -15px;
+    margin-top: -25px;
   }
 }

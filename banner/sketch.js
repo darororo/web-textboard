@@ -6,18 +6,19 @@ let speed = document.getElementById("speed-input");
 // let speed = 0;
 let angleInput = document.getElementById("angle-input");
 let txtWidth; let txtHeight;
+let size = document.getElementById("resize");
 
 let bgColor = "skyblue";
 let colorPicker = document.getElementById("color-picker");
+const banner = document.getElementById("banner");
 
 let dragging = false;
 let isMouseOnText = false;
 
 
 let r = 15; let angle = 0; let t = 0;
-let size = 200;
 
-let locationX=0; let locationY=0;
+let locationX = 0; let locationY = 0;
 
 let points = [];
 let robotoFont;
@@ -61,11 +62,11 @@ function writeText() {
     if(dragging) {
         dragText()
     }
+    push();
 
-    textSize(size);
+    textSize(parseInt(size.value));
     fill(col.innerText);
     textFont(font.innerText);
-    push();
     rotate(angleInput.value); 
     let txtObj = text(txt.value, locationX, locationY);
     pop();
@@ -104,7 +105,7 @@ function textEffectRotating() {
         dragText()
     }
 
-    points = robotoFont.textToPoints(txt.value, locationX, locationY - 250, size, {
+    points = robotoFont.textToPoints(txt.value, locationX, locationY - 250, size.value, {
         sampleFactor: 0.5,
         simplifyThreshold: 0.0
     });
@@ -120,7 +121,7 @@ function textEffectRotating() {
     fill(col.innerText);
 
     
-    textSize(size);
+    textSize(parseInt(size.value));
     textFont(font.innerText);
     let txtObj = text(txt.innerText, locationX, 500);
     
@@ -161,12 +162,8 @@ function mouseReleased() {
 }
 
 
-const banner = document.getElementById("banner");
 
 if (window.innerWidth <= 500) {
-    banner.classList.add("rotated");
-    banner.style.minWidth = "650px";
+  banner.classList.add("rotated");
+  banner.style.minWidth = "650px";
 }
-
-
-  
