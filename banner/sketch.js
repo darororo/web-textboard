@@ -3,14 +3,19 @@ let col = document.getElementById("selected-color");
 let font = document.getElementById("selected-font");
 let effect = document.getElementById("selected-effect");
 let speed = document.getElementById("speed-input");
+// let speed = 0;
 let angleInput = document.getElementById("angle-input");
+let txtWidth; let txtHeight;
 
 let bgColor = "skyblue";
 let colorPicker = document.getElementById("color-picker");
 
+let dragging = false;
+let isMouseOnText = false;
+
 
 let r = 15; let angle = 0; let t = 0;
-let size = 300;
+let size = 200;
 
 let locationX=0; let locationY=0;
 
@@ -25,9 +30,8 @@ function preload() {
 function setup() {
     let canvas = createCanvas(Math.max(windowWidth, 920), windowHeight);
     angleMode(DEGREES);
-
-    locationX = canvas.width/2 - 200;
-    locationY = canvas.height/2 + 100;
+    locationX = canvas.width/2;
+    locationY = canvas.height/2;
 }
 
 function windowResized() {
@@ -36,11 +40,7 @@ function windowResized() {
 
 function draw() {
     bgColor = colorPicker.value;
-    rectMode(CENTER);
     background(bgColor);
-    angle = parseFloat(angleInput.value) || 0;
-
-    
 
     switch(effect.innerText) {
         case "Normal":
@@ -50,19 +50,32 @@ function draw() {
             textEffectRotating()
         break;
     }
-    // writeText()
+
+    // textEffectRotating()
 }
 
+let offsetX;
+let offsetY;
+
 function writeText() {
+    if(dragging) {
+        dragText()
+    }
+
     textSize(size);
     fill(col.innerText);
     textFont(font.innerText);
     push();
-    translate(locationX, locationY);
-    rotate(angle); 
-    let txtObj = text(txt.value, 0 , 0);
+    rotate(angleInput.value); 
+    let txtObj = text(txt.value, locationX, locationY);
     pop();
     moveText(txtObj);
+
+    txtWidth = textWidth(txt.value);
+    txtHeight = textWidth("M");
+
+    // console.log(txtObj)
+   
 }
 
 // function writeText(str, color, font, size) {
@@ -84,7 +97,12 @@ function moveText(textObj) {
 }
 
 
+
+
 function textEffectRotating() { 
+    if(dragging) {
+        dragText()
+    }
 
     points = robotoFont.textToPoints(txt.value, locationX, locationY - 250, size, {
         sampleFactor: 0.5,
@@ -113,10 +131,42 @@ function textEffectRotating() {
     moveText(txtObj)
 
 }
+
+function dragText() {
+    locationX = mouseX + offsetX;
+    locationY = mouseY + offsetY;
+    console.log("loc x = " + locationX)
+    console.log("loc y = " + locationY)
+}
+
+
+function mousePressed() {
+    console.log( mouseX > locationX)
+    isMouseOnText = mouseX > locationX && mouseX < locationX + txtWidth && mouseY < locationY && mouseY > locationY - txtHeight;
+    if (isMouseOnText) {
+        dragging = true;
+
+        offsetX = locationX - mouseX;
+        offsetY = locationY - mouseY;
+                
+        
+        console.log("RIP AKIRA TORIYAMA")
+    }
+    
+}
+
+function mouseReleased() {
+    console.log("RELEASE THE KRAKEN")
+    dragging = false;
+}
+
+
 const banner = document.getElementById("banner");
 
-    if (window.innerWidth <= 500) {
-      banner.classList.add("rotated");
-      banner.style.minWidth = "650px";
-    }
+if (window.innerWidth <= 500) {
+    banner.classList.add("rotated");
+    banner.style.minWidth = "650px";
+}
+
+
   
