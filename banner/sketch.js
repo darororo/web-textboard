@@ -63,17 +63,17 @@ function writeText() {
         dragText()
     }
     push();
-
-    textSize(parseInt(size.value));
+    textSize(parseInt(size.value) || 0);
+    txtWidth = textWidth(txt.value);
+    txtHeight = textWidth("M");
     fill(col.innerText);
     textFont(font.innerText);
-    rotate(angleInput.value); 
+    rotate(parseInt(angleInput.value) || 0); 
     let txtObj = text(txt.value, locationX, locationY);
     pop();
     moveText(txtObj);
 
-    txtWidth = textWidth(txt.value);
-    txtHeight = textWidth("M");
+    
 
     // console.log(txtObj)
    
@@ -142,7 +142,7 @@ function dragText() {
 
 
 function mousePressed() {
-    console.log( mouseX > locationX)
+    console.log( mouseY > locationY - txtHeight)
     isMouseOnText = mouseX > locationX && mouseX < locationX + txtWidth && mouseY < locationY && mouseY > locationY - txtHeight;
     if (isMouseOnText) {
         dragging = true;
