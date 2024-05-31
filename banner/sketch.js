@@ -24,6 +24,7 @@ let points = [];
 let robotoFont;
 let img;
 
+<<<<<<< Updated upstream
 // document.getElementById("selected-color").addEventListener("input", () => {
 //     col = document.getElementById("selected-color").innerText;
 //     console.log(col)
@@ -35,6 +36,13 @@ let img;
 //     console.log(col)
 // })
  
+=======
+// Text Speed
+let vY; let vX;
+
+
+
+>>>>>>> Stashed changes
 function preload() {
     img = loadImage("../assets/bg1.jpeg")
     robotoFont = loadFont("../assets/Roboto-Black.ttf");
@@ -57,6 +65,9 @@ function draw() {
     bgColor = colorPicker.value;
     // background(bgColor);
     background(img);
+
+    vX = speed.value;
+    vY = 100;
 
 
     switch(effect.innerText) {
@@ -106,12 +117,19 @@ function writeText() {
 
 function moveText(textObj) {
     locationX -= speed.value;
-    // console.log("Text Width: " +textObj.textWidth());
-    // console.log("pos X: " + locationX);
 
-    if(textObj.textWidth() + locationX < 0) {
-        locationX = windowWidth;
-    }    
+
+    let offScreenLeft = locationX + txtWidth < 0;
+    let offScreenRight = locationX + txtWidth > canvas.width;
+    let offScreenTop = locationY - txtHeight < 0;
+    let offScreenBot = locationY > canvas.height;
+
+    console.log(offScreenLeft)
+
+    if(offScreenLeft) {
+        locationX = canvas.width;
+    }   
+    
 }
 
 
