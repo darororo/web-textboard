@@ -7,7 +7,7 @@ let speed = document.getElementById("speed-input");
 let angleInput = document.getElementById("angle-input");
 let txtWidth; let txtHeight;
 let size = document.getElementById("resize");
-
+let colorPickerText = document.getElementById("color-picker-text");
 let bgColor = "skyblue";
 let colorPicker = document.getElementById("color-picker");
 const banner = document.getElementById("banner");
@@ -24,6 +24,17 @@ let points = [];
 let robotoFont;
 let img;
 
+// document.getElementById("selected-color").addEventListener("input", () => {
+//     col = document.getElementById("selected-color").innerText;
+//     console.log(col)
+
+// })
+
+// document.getElementById("color-picker-text").addEventListener("change", () => {
+//     col = document.getElementById("color-picker-text").value;
+//     console.log(col)
+// })
+ 
 function preload() {
     img = loadImage("../assets/bg1.jpeg")
     robotoFont = loadFont("../assets/Roboto-Black.ttf");
@@ -71,7 +82,8 @@ function writeText() {
     textSize(parseInt(size.value) || 0);
     txtWidth = textWidth(txt.value);
     txtHeight = textWidth("M");
-    fill(col.innerText);
+  
+    fill(colorPickerText.value);
     textFont(font.innerText);
     rotate(parseInt(angleInput.value) || 0); 
     let txtObj = text(txt.value, locationX, locationY);
@@ -110,12 +122,14 @@ function textEffectRotating() {
         dragText()
     }
 
+    let c = colorPickerText.value;
+
     points = robotoFont.textToPoints(txt.value, locationX, locationY - 250, size.value, {
         sampleFactor: 0.5,
         simplifyThreshold: 0.0
     });
 
-    stroke(col.innerText);
+    stroke(c);
     let x = r*cos(angle);
     let y = r*sin(angle);
     translate(20, 300);
@@ -123,9 +137,8 @@ function textEffectRotating() {
         line(points[i].x, points[i].y, points[i].x + x, points[i].y + y);
     }
 
-    fill(col.innerText);
+    fill(c);
 
-    
     textSize(parseInt(size.value));
     textFont(font.innerText);
     let txtObj = text(txt.innerText, locationX, 500);
