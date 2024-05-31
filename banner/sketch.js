@@ -1,7 +1,8 @@
 let txt = document.getElementById("text-input"); 
 let col = document.getElementById("selected-color");
 let font = document.getElementById("selected-font");
-let effect = document.getElementById("selected-effect");
+let effectTxt = document.getElementById("selected-effect");
+let effectBg = document.getElementById("selected-effect-bg");
 let speed = document.getElementById("speed-input");
 // let speed = 0;
 let angleInput = document.getElementById("angle-input");
@@ -24,10 +25,6 @@ let points = [];
 let robotoFont;
 let img;
 
-// Text Speed
-let vY; let vX;
-
-
 
 function preload() {
     img = loadImage("../assets/bg1.jpeg")
@@ -35,11 +32,17 @@ function preload() {
 }
 
 
+let drops = []
+
+
 function setup() {
     let canvas = createCanvas(Math.max(windowWidth, 920), windowHeight);
     angleMode(DEGREES);
     locationX = canvas.width/2;
     locationY = canvas.height/2;
+
+    // p = createVector(random(width), 200)
+
     
 }
 
@@ -52,11 +55,17 @@ function draw() {
     // background(bgColor);
     background(img);
 
-    vX = speed.value;
-    vY = 100;
+    console.log(colorPickerText.value)
 
+    switch(effectBg.innerText) {
+        case "Normal":
+        break;
+        case "Rainy" :
+            bgEffectRain()
+        break;
+    }
 
-    switch(effect.innerText) {
+    switch(effectTxt.innerText) {
         case "Normal":
             writeText()
         break;
@@ -65,7 +74,6 @@ function draw() {
         break;
     }
 
-    // textEffectRotating()
 }
 
 let offsetX;
@@ -86,20 +94,9 @@ function writeText() {
     let txtObj = text(txt.value, locationX, locationY);
     pop();
     moveText(txtObj);
-
-    
-
-    // console.log(txtObj)
    
 }
 
-// function writeText(str, color, font, size) {
-//     textSize(size);
-//     fill(color);
-//     textFont(font);
-//     let t = text(str, locationX , 500);
-//     moveText(t, 25);
-// }
 
 function moveText(textObj) {
     locationX -= speed.value;
@@ -117,9 +114,6 @@ function moveText(textObj) {
     }   
     
 }
-
-
-
 
 function textEffectRotating() { 
     if(dragging) {
@@ -188,4 +182,38 @@ function mouseReleased() {
 if (window.innerWidth <= 500) {
   banner.classList.add("rotated");
   banner.style.minWidth = "650px";
+}
+
+function bgEffectRain() {
+    for (let i = 0; i < 5; i++){
+        drops.push(new Drop(random(width), 0, 0))
+    }
+      
+    for (let d of drops){
+        d.show()
+        d.update()
+    }
+}
+
+
+
+class Drop{
+  constructor(x, y){
+    this.pos = createVector(x, y)
+    this.vel = createVector(0, random(8, 11))
+    this.length = random(20, 40)
+    this.strength = random(255)
+  }
+  show(){
+    stroke(255, this.strength)
+    line(this.pos.x, this.pos.y, this.pos.x, this.pos.y-this.length)
+  }
+  
+  update(){
+    this.pos.add(this.vel)
+    if (this.pos.y > height + 100){
+      drops.shift()
+    }
+  }
+  
 }

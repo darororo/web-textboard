@@ -22,9 +22,9 @@ let fontBtn = document.getElementById("font-btn");
 let fontMenu = document.getElementById("font-menu");
 let fontForm = document.getElementById("font-form");
 
-// effect Variables
-let selectedEffect = document.getElementById("selected-effect");
-if(selectedEffect) {
+// Effect Variables
+let selectedEffectText = document.getElementById("selected-effect");
+if(selectedEffectText) {
     let effectOptions = document.querySelectorAll("#effect-menu > .option");
     let effectBtn = document.getElementById("effect-btn");
     let effectMenu = document.getElementById("effect-menu");
@@ -33,7 +33,21 @@ if(selectedEffect) {
     if(effectMenu.style.display == "" ){ effectMenu.style.display = "none"; };
 
     effectBtn.onclick = () => {menuController(effectMenu)}
-    renderOptions(effectOptions, selectedEffect, effectForm)
+    renderOptions(effectOptions, selectedEffectText, effectForm)
+}
+
+// Effect Variables
+let selectedEffectBg = document.getElementById("selected-effect-bg");
+if(selectedEffectBg) {
+    let effectOptions = document.querySelectorAll("#bg-effect-menu > .option");
+    let effectBtn = document.getElementById("bg-effect-btn");
+    let effectMenu = document.getElementById("bg-effect-menu");
+    let effectForm = document.getElementById("bg-effect-form");
+
+    if(effectMenu.style.display == "" ){ effectMenu.style.display = "none"; };
+
+    effectBtn.onclick = () => {menuController(effectMenu)}
+    renderOptions(effectOptions, selectedEffectBg, effectForm)
 }
 
 // fontMenu style is empty upon started like colorMenu 
