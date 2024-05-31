@@ -24,25 +24,11 @@ let points = [];
 let robotoFont;
 let img;
 
-<<<<<<< Updated upstream
-// document.getElementById("selected-color").addEventListener("input", () => {
-//     col = document.getElementById("selected-color").innerText;
-//     console.log(col)
-
-// })
-
-// document.getElementById("color-picker-text").addEventListener("change", () => {
-//     col = document.getElementById("color-picker-text").value;
-//     console.log(col)
-// })
- 
-=======
 // Text Speed
 let vY; let vX;
 
 
 
->>>>>>> Stashed changes
 function preload() {
     img = loadImage("../assets/bg1.jpeg")
     robotoFont = loadFont("../assets/Roboto-Black.ttf");
