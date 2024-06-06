@@ -13,7 +13,7 @@ let bgColor = "skyblue";
 let colorPicker = document.getElementById("color-picker");
 const banner = document.getElementById("banner");
 
-
+const particles = [];
 
 let dragging = false;
 let isMouseOnText = false;
@@ -89,6 +89,9 @@ function draw() {
         case "Rainy" :
             bgEffectRain()
         break;
+        case "Galaxy":
+            bgEffectGalaxy()
+        break;
     }
 
     switch(effectTxt.innerText) {
@@ -101,6 +104,9 @@ function draw() {
         case "Shadow":
             writeTextWithShadow(effectTxt.value)
            
+        break;
+        case "Glitch" :
+            glitch()
         break;
      }
     
@@ -280,3 +286,72 @@ function writeTextWithShadow() {
     pop();
     moveText();
 }
+
+
+function bgEffectGalaxy() {
+
+    if (particles.length < 500) {
+        for (let i = 0; i < 10; i++) {
+            particles.push({
+                x: window.innerWidth/2,
+                y: window.innerHeight/2,
+                size: Math.random() * 2 + 1,//random size from 1-3
+                speed: Math.random() * 4 + 1,//random speed from 1-5
+                color: color(random(255), random(255), random(255)), // Generate a random color
+                angle: Math.random() * Math.PI * 2 //random angle 0-360
+            });
+        }
+    }
+
+    for (const particle of particles) { //for each particle
+        fill(particle.color);
+        noStroke();
+        ellipse(particle.x, particle.y, particle.size, particle.size);
+
+        // update new angle and speed for each particle
+        particle.x += Math.cos(particle.angle) * particle.speed; 
+        particle.y += Math.sin(particle.angle) * particle.speed;
+
+        particle.angle += 0.02;
+
+        //if particles move outside screen reset screen
+        if(particle.x < 0 || particle.x > window.innerWidth || particle.y < 0 || particle.y > window.innerHeight) {
+            particle.x = window.innerWidth / 2;
+            particle.y = window.innerHeight / 2;
+        }
+    }
+}
+// function glitch() {
+  
+//     canvas.width = shown.width;
+//     canvas.height = shown.height;
+  
+//     ctx.clearRect(0, 0, ctx.width, ctx.height);
+//     ctx.textAlign = 'center';
+//     ctx.textBaseLine = 'middle';
+//     ctx.font = effectTxt.dataset.font + ' serif';
+//     ctx.fillStyle = effectTxt.dataset.color;
+  
+//     ctx.fillText(effectTxt.dataset.text, canvas.width / 2, canvas.height / 2);
+  
+//     ctxShown.clearRect(0, 0, ctxShown.width, ctxShown.height);
+//     ctxShown.drawImage(canvas, 0, 0);
+//     for (let i = 10; i--; ) {
+//       glitchInner();
+//     }
+  
+//     function glitchInner() {
+//       let width = 100 + Math.random() * 100;
+//       let height = 50 + Math.random() * 50;
+  
+//       let x = Math.random() * canvas.width;
+//       let y = Math.random() * canvas.height;
+  
+//       let dx = x + (Math.random() * 40 - 20);
+//       let dy = y + (Math.random() * 30 - 15);
+  
+//       ctxShown.clearRect(x, y, width, height);
+//       ctxShown.fillStyle = '#4a6';
+//       ctxShown.drawImage(canvas, x, y, width, height, dx, dy, width, height);
+//     }
+//   }
