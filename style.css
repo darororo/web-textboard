@@ -13,7 +13,7 @@ body{
   background-color: white;
   font-family: 'Coustard';
   font-size: larger;
-  width: 160px;
+  width: 110px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ body{
 
 .dropbox-btn {
   box-sizing: border-box;
-  width: 80px;
+  width: 60px;
   background-color: #494454;
   border: 1px solid black;
   border-radius: 0px 8px 8px 0px;
@@ -73,8 +73,6 @@ body{
   position: absolute;
 }
 
-
-
 #font-menu > .option{
   position: absolute;
 }
@@ -86,7 +84,7 @@ body{
 .textfield  {
   font-family: 'Coustard';
   font-size: 18px;
-  width: 250px;
+  width: 180px;
   height: 40px;
   border: 1px solid black;
   border-radius: 8px;
@@ -108,7 +106,10 @@ body{
 }
 
 .button {
+  position: absolute;
+  margin-left: -40px;
   padding: 8px;
+  top: 400px;
   border: 1px solid #2e2b35;
   border-radius: 8px;
   background-color: #494454;
@@ -157,28 +158,38 @@ body{
   column-gap: 10px;
 }
 
-
-
 .background {
   background: black;
   padding: 0px;
-  
 }
 
 .banner {
   padding: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #8f8f8f;
+  background-color: white;
+  opacity: 0%;
   display: flex;
-  flex-grow: 1;
-  justify-content: space-around;
-  opacity: 0;
   column-gap: 10px;
   width: 100%;
+  min-width: 1100px;
+  height: fit-content;
+  transition: opacity 0.3s ease;
 }
 
 .banner:hover { opacity: 80%;}
+
+.banner .box {
+  background-color: #8f8f8f;
+  padding: 20px;
+  width: 100%;
+}
+
+.banner #label {
+  display: flex;
+  justify-content: center;
+  font-family: 'Coustard';
+  font-size: larger;
+  color: white;
+}
 
 .banner .textfield {
   display: flex;
@@ -203,8 +214,47 @@ body{
 .banner .radius {
   width: 70px;
 }
+#rotate, #size {
+margin-left: 310px;
+position:absolute;
+}
 
 #left-column {
   width: 45%;
+  display: grid;
+  grid-template-rows: auto auto ;
+  grid-template-columns: auto 200px;
+  grid-auto-flow: column;
+  column-gap: 10px;
+  min-width: 520px;
+
 }
 
+#right-column {
+  display: grid;
+  grid-template-rows: auto auto ;
+  grid-template-columns: auto auto;
+}
+#speed-input {
+  width: 230px;
+  accent-color: rgb(78, 78, 138);
+}
+@media screen and (max-width: 500px) {
+  body {
+    background-image: url("https://i.pinimg.com/564x/ba/4d/c3/ba4dc3fbb98fcd3f6d102e8f1d5814f1.jpg");
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button {
+    top: 500px;
+  }
+  #font-container {
+    margin-top: 70px;
+  }
+  .rotated {
+    transform: rotate(90deg);
+    margin-left: -70px;
+  }
+}

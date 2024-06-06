@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Board</title>
+    <title>Texto-Bodo</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Coustard' rel='stylesheet'>
 </head>
 
-<body class="">
+<body>
     <div class="component">
-        <div class="title">Text Board</div>
+        <div class="title">Texto-Bodo</div>
         <div class="container">
             <div class="text">Text</div>
             <input name="text" id="text-input" class="textfield" type="text" placeholder="Enter your text...">
         </div>
         
-        <div class="container" style="position: absolute; z-index: 4; top: 160px;">
+        <div class="container" style="position: relative; z-index: 4;">
             <div class="color">Color</div>
             <div class="dropbox">
                 <div id="color-selector" class="dropbox-head">
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="container" style="position:absolute; z-index: 3; top:215px">
+        <div id="font-container" class="container" style="position:absolute; z-index: 3;top: 230px;">
             <div class="font">Font</div>
             <div class="dropbox">
                 <div id="font-selector" class="dropbox-head">
@@ -84,9 +84,13 @@
             <input type="text"  id="text-form" name="text" hidden>
             <input type="text"  id="font-form" name="font" value="Times New" hidden>
             <input type="text" id="color-form" name="color" value="White" hidden>
-            <button style="position: absolute; top:500px" id="go-btn" class="button">GO!</button>
+            <button id="go-btn" class="button">GO!</button>
         </form>
     </div>
+
+    <script src="lib/p5.min.js"></script>
+    <script src="banner/firework.js"></script>
+    <script src="indexEffect.js"></script>
     
     <script src="selector.js"></script>
 </body>

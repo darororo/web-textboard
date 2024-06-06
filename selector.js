@@ -22,6 +22,34 @@ let fontBtn = document.getElementById("font-btn");
 let fontMenu = document.getElementById("font-menu");
 let fontForm = document.getElementById("font-form");
 
+// Effect Variables
+let selectedEffectText = document.getElementById("selected-effect");
+if(selectedEffectText) {
+    let effectOptions = document.querySelectorAll("#effect-menu > .option");
+    let effectBtn = document.getElementById("effect-btn");
+    let effectMenu = document.getElementById("effect-menu");
+    let effectForm = document.getElementById("effect-form");
+
+    if(effectMenu.style.display == "" ){ effectMenu.style.display = "none"; };
+
+    effectBtn.onclick = () => {menuController(effectMenu)}
+    renderOptions(effectOptions, selectedEffectText, effectForm)
+}
+
+// Effect Variables
+let selectedEffectBg = document.getElementById("selected-effect-bg");
+if(selectedEffectBg) {
+    let effectOptions = document.querySelectorAll("#bg-effect-menu > .option");
+    let effectBtn = document.getElementById("bg-effect-btn");
+    let effectMenu = document.getElementById("bg-effect-menu");
+    let effectForm = document.getElementById("bg-effect-form");
+
+    if(effectMenu.style.display == "" ){ effectMenu.style.display = "none"; };
+
+    effectBtn.onclick = () => {menuController(effectMenu)}
+    renderOptions(effectOptions, selectedEffectBg, effectForm)
+}
+
 // fontMenu style is empty upon started like colorMenu 
 if(fontMenu.style.display == "" ){ fontMenu.style.display = "none";};
 
@@ -39,6 +67,8 @@ if(goBtn) {
 
 
 function menuController(menu) {
+    console.log(menu.style.display)
+
     btnClicked = true;
     if (menu.style.display == "none") {
         menu.style.display = "block";
