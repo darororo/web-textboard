@@ -51,11 +51,11 @@ function preload() {
     robotoFont = loadFont("../assets/Roboto-Black.ttf");
 }
 
-
-
-
-let drops = []
-
+// Bg Effect
+let drops = []  // rain drops
+let fireworks = []  // fireworks
+let fireworkGravity;    // gravity
+let fireworkColors = [];
 
 function setup() {
     let canvas = createCanvas(Math.max(windowWidth, 1120), windowHeight);
@@ -63,9 +63,8 @@ function setup() {
     locationX = canvas.width/2;
     locationY = canvas.height/2 +50;
 
-    // p = createVector(random(width), 200)
-
-    
+    fireworkGravity = createVector(0, 0.1);
+    fireworkColors = ["#ff99c8","#fcf6bd","#d0f4de","#a9def9","#e4c1f9"];
 }
 
 function windowResized() {
@@ -87,16 +86,19 @@ function draw() {
         case "Normal":
         break;
         case "Rainy" :
-            bgEffectRain()
+            bgEffectRain();
         break;
         case "Galaxy":
             bgEffectGalaxy()
+        break;
+        case "Firework":
+            bgEffectFirework();
         break;
     }
 
     switch(effectTxt.innerText) {
         case "Normal":
-            writeText()
+            writeText();
         break;
         case "Hammock":
             textEffectRotating()
@@ -218,7 +220,7 @@ function mouseReleased() {
 
 if (window.innerWidth <= 500) {
   banner.classList.add("rotated");
-  banner.style.minWidth = "500px";
+  banner.style.minWidth = "400px";
 }
 
 function bgEffectRain() {
@@ -232,6 +234,20 @@ function bgEffectRain() {
     }
 }
 
+function bgEffectFirework() {
+  if (random(1) < 0.1) {
+    fireworks.push(new Firework(random(width), height));
+  }
+  for (let i=fireworks.length-1; i>=0; i--) {
+    fireworks[i].update();
+    fireworks[i].display();
+    
+    if (fireworks[i].done) {
+      fireworks.splice(i, 1);
+    }
+  }
+}
+
 
 
 class Drop{
@@ -241,6 +257,7 @@ class Drop{
     this.length = random(20, 40)
     this.strength = random(255)
   }
+  
   show(){
     stroke(255, this.strength)
     line(this.pos.x, this.pos.y, this.pos.x, this.pos.y-this.length)
