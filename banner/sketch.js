@@ -58,7 +58,7 @@ let fireworkGravity;    // gravity
 let fireworkColors = [];
 
 // fire text
-let firePoints = []
+let firePoints = [];
 
 
 function setup() {
@@ -134,6 +134,7 @@ function draw() {
 let offsetX;
 let offsetY;
 
+let tf; // text font
 function writeText() {
     if(dragging) {
         dragText()
@@ -144,7 +145,7 @@ function writeText() {
     txtHeight = textWidth("M");
   
     fill(colorPickerText.value);
-    textFont(font.innerText);
+    tf = textFont(font.innerText);
     rotate(parseInt(angleInput.value) || 0); 
     let txtObj = text(txt.value, locationX, locationY);
     pop();
@@ -210,25 +211,24 @@ function textEffectFire() {
         dragText()
     }
 
-    let c = colorPickerText.value;
-
-    points = robotoFont.textToPoints(txt.value, locationX - 10 , locationY + 30, size.value, {
-        sampleFactor: 0.01,
-        simplifyThreshold: 0
+    points = robotoFont.textToPoints(txt.value, locationX - 20  , locationY + 30, size.value - 5, {
+        sampleFactor: 0.7,
+        simplifyThreshold: 0.5,
     });
 
-
+    
     for (let i=0; i<points.length; i++) {
         firePoints.push(new FireParticle(points[i].x, points[i].y));
-        
     }
-
+    
     for (let i=0; i<firePoints.length; i++) {
         firePoints[i].update();
         firePoints[i].show();
-    }
 
-    // fill(c);
+        if(firePoints[i].done) {
+            firePoints.splice(i, 1);
+        }
+    }
 
     textSize(parseInt(size.value));
     textFont(font.innerText);
@@ -270,7 +270,7 @@ function mouseReleased() {
 
 if (window.innerWidth <= 500) {
   banner.classList.add("rotated");
-  banner.style.minWidth = "400px";
+  banner.style.minWidth = "730px";
 }
 
 function bgEffectRain() {
@@ -357,7 +357,7 @@ function writeTextWithShadow() {
 
 function bgEffectGalaxy() {
 
-    if (particles.length < 500) {
+    if (particles.length < 300) {
         for (let i = 0; i < 10; i++) {
             particles.push({
                 x: window.innerWidth/2,
@@ -399,15 +399,24 @@ class FireParticle {
       this.vy = random(-3, -0.5);
       this.opacity = 255;
       this.cc = 1;
+
+      this.done = false;
+
     }
     update(){
+      
+
       this.x += this.vx;
       this.y += this.vy;
       this.opacity -= 5;
       this.cc *= 1.2;
+
+      if(this.opacity < 0) {
+        this.done = true;
+      }
     }
     show(){
-      let val = 0.5;
+      let val = 0.1;
       noStroke();
       if (count == 1){
         fill(random(200, 250) + this.cc, random(140, 180) + this.cc, random(20, 100) + this.cc, this.opacity);
@@ -422,4 +431,6 @@ class FireParticle {
         pop();
       }
     }
+
+    
   }
