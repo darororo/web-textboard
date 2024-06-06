@@ -19,7 +19,7 @@ let dragging = false;
 let isMouseOnText = false;
 
 
-let r = 15; let angle = 0; let t = 0;
+let r = 15; let angle = 0; let t = 0;   // Rotatint effect
 
 let locationX = 0; let locationY = 0;
 
@@ -37,6 +37,9 @@ document.getElementById("background-btn").addEventListener("click", () => {
     bgType = "img";
 })
 
+colorPickerText.oninput = () => {
+    col.innerText = colorPickerText.value;
+}
 
 
 let points = []; // text points
@@ -61,14 +64,27 @@ let fireworkColors = [];
 let firePoints = [];
 
 
+
+
 function setup() {
     let canvas = createCanvas(Math.max(windowWidth, 1120), windowHeight);
     angleMode(DEGREES);
     locationX = canvas.width/2;
     locationY = canvas.height/2 +50;
-
     fireworkGravity = createVector(0, 0.1);
     fireworkColors = ["#ff99c8","#fcf6bd","#d0f4de","#a9def9","#e4c1f9"];
+
+    let publicAddress = 'http://192.168.100.11:3000';
+    let socket = io.connect(publicAddress);
+    socket.on('input', data => {
+        txt.value = data.text;
+        col.innerText = data.color;
+        font.innerText = data.font;
+        console.log(txt.value);
+    })
+
+
+
 }
 
 function windowResized() {
@@ -144,7 +160,8 @@ function writeText() {
     txtWidth = textWidth(txt.value);
     txtHeight = textWidth("M");
   
-    fill(colorPickerText.value);
+    // fill(colorPickerText.value);
+    fill(col.innerText);
     tf = textFont(font.innerText);
     rotate(parseInt(angleInput.value) || 0); 
     let txtObj = text(txt.value, locationX, locationY);

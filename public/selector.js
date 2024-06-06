@@ -2,6 +2,7 @@ let focusedMenu = [];
 let btnClicked = false; // prevent closeAll function in the document listener to close the menu immediately
 
 
+
 // Color Variables
 let selectedColor = document.getElementById("selected-color");
 let colorOptions = document.querySelectorAll("#color-menu > .option");
@@ -90,6 +91,7 @@ function renderOptions(optionArray, selectedEle, formElement) {
             focusedMenu.pop().style.display = "none";;
         }
     }
+
 }
 
 function closeAllSelects() {
