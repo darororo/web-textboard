@@ -39,7 +39,7 @@ document.getElementById("background-btn").addEventListener("click", () => {
 
 
 
-let points = [];
+let points = []; // text points
 let robotoFont;
 let img = [];
 
@@ -57,6 +57,10 @@ let fireworks = []  // fireworks
 let fireworkGravity;    // gravity
 let fireworkColors = [];
 
+// fire text
+let firePoints = []
+
+
 function setup() {
     let canvas = createCanvas(Math.max(windowWidth, 1120), windowHeight);
     angleMode(DEGREES);
@@ -69,7 +73,12 @@ function setup() {
 
 function windowResized() {
     resizeCanvas(Math.max(windowWidth, 1120), windowHeight);
-  }
+}
+
+function clearMemory() {
+    fireworks = [];
+    drops = [];
+}
 
 function draw() {
 
@@ -86,29 +95,36 @@ function draw() {
         case "Normal":
         break;
         case "Rainy" :
+            fireworks = [];
             bgEffectRain();
         break;
         case "Galaxy":
+            drops = [];
+            fireworks = [];
             bgEffectGalaxy()
         break;
         case "Firework":
+            drops = [];
             bgEffectFirework();
         break;
     }
 
     switch(effectTxt.innerText) {
         case "Normal":
+            firePoints = [];
+            points = [];
             writeText();
         break;
         case "Hammock":
+            firePoints = [];
             textEffectRotating()
         break;
         case "Shadow":
             writeTextWithShadow(effectTxt.value)
-           
         break;
-        case "Glitch" :
-            glitch()
+        case "Chibi Fire" :
+            textEffectFire();
+            writeText();
         break;
      }
     
@@ -186,6 +202,40 @@ function textEffectRotating() {
 
     moveText(txtObj)
 
+}
+
+
+function textEffectFire() {
+    if(dragging) {
+        dragText()
+    }
+
+    let c = colorPickerText.value;
+
+    points = robotoFont.textToPoints(txt.value, locationX - 10 , locationY + 30, size.value, {
+        sampleFactor: 0.01,
+        simplifyThreshold: 0
+    });
+
+
+    for (let i=0; i<points.length; i++) {
+        firePoints.push(new FireParticle(points[i].x, points[i].y));
+        
+    }
+
+    for (let i=0; i<firePoints.length; i++) {
+        firePoints[i].update();
+        firePoints[i].show();
+    }
+
+    // fill(c);
+
+    textSize(parseInt(size.value));
+    textFont(font.innerText);
+    let txtObj = text(txt.innerText, locationX, 500);
+
+
+    moveText(txtObj)
 }
 
 function dragText() {
@@ -338,37 +388,38 @@ function bgEffectGalaxy() {
         }
     }
 }
-// function glitch() {
-  
-//     canvas.width = shown.width;
-//     canvas.height = shown.height;
-  
-//     ctx.clearRect(0, 0, ctx.width, ctx.height);
-//     ctx.textAlign = 'center';
-//     ctx.textBaseLine = 'middle';
-//     ctx.font = effectTxt.dataset.font + ' serif';
-//     ctx.fillStyle = effectTxt.dataset.color;
-  
-//     ctx.fillText(effectTxt.dataset.text, canvas.width / 2, canvas.height / 2);
-  
-//     ctxShown.clearRect(0, 0, ctxShown.width, ctxShown.height);
-//     ctxShown.drawImage(canvas, 0, 0);
-//     for (let i = 10; i--; ) {
-//       glitchInner();
-//     }
-  
-//     function glitchInner() {
-//       let width = 100 + Math.random() * 100;
-//       let height = 50 + Math.random() * 50;
-  
-//       let x = Math.random() * canvas.width;
-//       let y = Math.random() * canvas.height;
-  
-//       let dx = x + (Math.random() * 40 - 20);
-//       let dy = y + (Math.random() * 30 - 15);
-  
-//       ctxShown.clearRect(x, y, width, height);
-//       ctxShown.fillStyle = '#4a6';
-//       ctxShown.drawImage(canvas, x, y, width, height, dx, dy, width, height);
-//     }
-//   }
+
+
+let count = 1;
+class FireParticle {
+    constructor(x, y){
+      this.x = x;
+      this.y = y - 10;
+      this.vx = random(-1, 1);
+      this.vy = random(-3, -0.5);
+      this.opacity = 255;
+      this.cc = 1;
+    }
+    update(){
+      this.x += this.vx;
+      this.y += this.vy;
+      this.opacity -= 5;
+      this.cc *= 1.2;
+    }
+    show(){
+      let val = 0.5;
+      noStroke();
+      if (count == 1){
+        fill(random(200, 250) + this.cc, random(140, 180) + this.cc, random(20, 100) + this.cc, this.opacity);
+        ellipse(this.x, this.y, val+random(-5,10));
+      }
+      if (count == 2){
+        fill(random(10, 50) + this.cc, random(10, 50) + this.cc, random(100, 120) + this.cc, this.opacity);
+        push();
+        rotate(random(-2,2));
+        translate(this.x, this.y);
+        rect(0, 0, val + random(-5,5));
+        pop();
+      }
+    }
+  }
