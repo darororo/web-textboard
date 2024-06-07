@@ -21,4 +21,4 @@ io.sockets.on('connection', (socket) => {
 })
 
 
-console.log("SUCK ET!")
+console.log("amougus")

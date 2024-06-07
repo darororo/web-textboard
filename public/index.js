@@ -1,4 +1,6 @@
-let publicAddress = 'http://192.168.100.11:3000';
+// let publicAddress = 'http://192.168.100.11:3000';   // home wifi
+let publicAddress = 'http://192.168.185.231:3000';   // hotspot
+
 var socket;
 socket = io.connect(publicAddress);
 
@@ -22,8 +24,5 @@ textEle.oninput = () => {
         font: fontEle.innerText
     };
     socket.emit("input", data)
-    console.log(data.text)
-    console.log(data.color)
-    console.log(data.font)
 }
 

@@ -74,7 +74,9 @@ function setup() {
     fireworkGravity = createVector(0, 0.1);
     fireworkColors = ["#ff99c8","#fcf6bd","#d0f4de","#a9def9","#e4c1f9"];
 
-    let publicAddress = 'http://192.168.100.11:3000';
+    // let publicAddress = 'http://192.168.100.11:3000';   // home wifi
+    let publicAddress = 'http://192.168.185.231:3000';   // hotspot
+
     let socket = io.connect(publicAddress);
     socket.on('input', data => {
         txt.value = data.text;
@@ -109,6 +111,8 @@ function draw() {
 
     switch(effectBg.innerText) {
         case "Normal":
+            fireworks = [];
+            drops = [];
         break;
         case "Rainy" :
             fireworks = [];
