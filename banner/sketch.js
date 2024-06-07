@@ -56,7 +56,7 @@ let drops = []  // rain drops
 let fireworks = []  // fireworks
 let fireworkGravity;    // gravity
 let fireworkColors = [];
-
+let flakes =[];
 // fire text
 let firePoints = [];
 
@@ -106,6 +106,10 @@ function draw() {
         case "Firework":
             drops = [];
             bgEffectFirework();
+        break;
+        case "Snowy":
+            drops = [];
+            bgEffectSnow();
         break;
     }
 
@@ -275,7 +279,7 @@ if (window.innerWidth <= 500) {
 
 function bgEffectRain() {
     for (let i = 0; i < 5; i++){
-        drops.push(new Drop(random(width), 0, 0))
+        drops.push(new Drop(random(width), 0))
     }
       
     for (let d of drops){
@@ -388,7 +392,38 @@ function bgEffectGalaxy() {
         }
     }
 }
+function bgEffectSnow(){
 
+    for (let i = 0; i < 3; i++){
+        flakes.push(new Flake(random(width), 0));
+    }
+    
+    for (let f of flakes) {
+        f.show();
+        f.update();
+    }
+}
+
+class Flake { 
+    constructor(x, y) {
+        this.pos = createVector(x, y);
+        this.vel = createVector(0, random(1, 3)); // Adjust snowfall speed
+        this.size = random(3, 8); // Adjust snowflake size
+        this.opacity = random(100, 200); // Adjust snowflake opacity
+    }
+
+    show() {
+        noStroke();
+        fill(255, this.opacity); // Adjust snowflake color and opacity
+        ellipse(this.pos.x, this.pos.y, this.size, this.size);
+    }
+    update() {
+        this.pos.add(this.vel);
+        if (this.pos.y > height +100 ) {
+            flakes.shift()
+        }
+    }
+}
 
 let count = 1;
 class FireParticle {
