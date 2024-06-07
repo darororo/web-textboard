@@ -127,9 +127,12 @@ function draw() {
         case "Shadow":
             writeTextWithShadow(effectTxt.value)
         break;
-        case "Chibi Fire" :
+        case "Pixie dust" :
             textEffectFire();
             writeText();
+        break;
+        case "Neon" :
+            textNeon(effectTxt.value);
         break;
         case "Rainbow" :
             textRainbow();
@@ -390,19 +393,19 @@ class Drop{
   
 }
 
+function textNeon() {
+    writeText();
+    glow(colorPickerText.value, 80);
+    writeText();
+    glow(colorPickerText.value, 20);
+}
 
-// function textNeon() {
-//     glow(color(255,0,0), 39);
-//     writeText();
-
-// }
-
-// function glow(glowColor, blurriness){
-//     drawingContext.shadowBlur = blurriness;
-//     drawingContext.shadowBlur = glowColor;
-//     drawingContext.shadowOffsetX = 20;
-//     drawingContext.shadowOffsetY = 20;
-// }
+function glow(glowColor, blurriness){
+    drawingContext.shadowBlur = blurriness;
+    drawingContext.shadowColor = glowColor;
+    drawingContext.shadowOffsetX = 0;
+    drawingContext.shadowOffsetY = 0;
+}
 
 function writeTextWithShadow() {
     if (dragging) {
