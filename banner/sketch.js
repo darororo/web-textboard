@@ -81,6 +81,7 @@ function clearMemory() {
 }
 
 function draw() {
+    
 
     switch(bgType) {
         case "color":
@@ -130,7 +131,11 @@ function draw() {
             textEffectFire();
             writeText();
         break;
+        case "Rainbow" :
+            textRainbow();
+        break;
      }
+
     
    
 }
@@ -242,12 +247,71 @@ function textEffectFire() {
     moveText(txtObj)
 }
 
+
+let colors = [
+    "#F9DA4A",
+    "#5DC93C",
+    "#44A1F7",
+    "#D24EEF",
+    "#F3A83C",
+    "#EC4F48"
+  ];
+  let colorStart = 0;
+
+function textRainbow(){
+    push();
+    if(dragging) { 
+        dragText();
+    }
+
+    let txtObj;
+
+    textSize(250);
+    textFont(font);
+
+    strokeWeight(10);
+
+    let nbTypos = 8;
+    let colorStart = 0;
+    
+    stroke(50);
+
+    let colorIndex = colorStart;
+
+ // for (let i = nbTypos; i >= 0; i--) {
+  for (let i = 0; i <= nbTypos; i++) {
+    
+    if (i == nbTypos) {
+      fill(255);
+    } else {
+      fill(colors[colorIndex]);
+    }
+
+    let _y = sin(i*4 + frameCount * 2) * 100;
+
+    txtObj = text(txt.value, locationX + i * 15, locationY + _y);
+
+    colorIndex++;
+    if (colorIndex >= colors.length) colorIndex = 0;
+  }
+
+  if (frameCount % 5 == 0) {
+    colorStart++;
+    if (colorStart >= colors.length) colorStart = 0;
+  }
+ 
+  pop();
+
+}
+
+
 function dragText() {
     locationX = mouseX + offsetX;
     locationY = mouseY + offsetY;
     console.log("loc x = " + locationX)
     console.log("loc y = " + locationY)
 }
+
 
 
 function mousePressed() {
